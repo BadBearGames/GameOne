@@ -144,7 +144,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -280,6 +280,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1007814160}
   - 114: {fileID: 1007814159}
+  - 114: {fileID: 1007814161}
   m_Layer: 0
   m_Name: Flock
   m_TagString: Untagged
@@ -311,6 +312,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!114 &1007814161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1007814158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ee97e8b39be734eabfd7801c06bf58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &1079748788
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,9 +374,9 @@ GameObject:
   - 33: {fileID: 1646185482}
   - 135: {fileID: 1646185481}
   - 23: {fileID: 1646185480}
-  - 114: {fileID: 1646185479}
   - 195: {fileID: 1646185485}
   - 54: {fileID: 1646185484}
+  - 114: {fileID: 1646185486}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -371,17 +384,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1646185479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1646185478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77565d8cb94af4c4483dbb1ec097e339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &1646185480
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -474,6 +476,18 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1646185486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1646185478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ee97e8b39be734eabfd7801c06bf58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &1708230200
 GameObject:
   m_ObjectHideFlags: 0
