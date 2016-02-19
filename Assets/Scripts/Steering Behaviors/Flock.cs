@@ -13,6 +13,7 @@ public class Flock: MonoBehaviour
 	private Vector3 centroid;
 	private Vector3 direction;
 	private Vehicle leader;
+	public bool chase = false;
 
 	//Properties
 	public List<Seeker> Agents { get { return agents; } }
@@ -42,7 +43,7 @@ public class Flock: MonoBehaviour
 			//Designate leader
 			if (i == 0)
 			{
-				flocker.GetComponent<Seeker>().seekerTarget = GameManager.Instance.player;
+				//flocker.GetComponent<Seeker>().seekerTarget = GameManager.Instance.player;
 				leader = flocker.GetComponent<Seeker>();
 			}
 		}
@@ -83,5 +84,28 @@ public class Flock: MonoBehaviour
 		}
 		sumOfForward.Normalize();
 		direction = sumOfForward * agents[0].GetComponent<Seeker>().maxSpeed;
+	}
+
+	/// <summary>
+	/// Enables the chase.
+	/// </summary>
+	/// <param name="chase">If set to <c>true</c> chase.</param>
+	public void EnableChase(bool chase)
+	{
+		this.chase = chase;
+		if (chase)
+		{
+			foreach (Seeker agent in agents)
+			{
+				agent.seekerTarget = GameManager.Instance.player;
+			}
+		}
+		else
+		{
+			foreach (Seeker agent in agents)
+			{
+				agent.seekerTarget = null;
+			}
+		}
 	}
 }

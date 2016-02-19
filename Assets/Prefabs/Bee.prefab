@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11477432}
   m_Layer: 0
   m_Name: Bee
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,19 +77,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 3
-  maxForce: 3
+  maxForce: 2.5
   mass: 0.5
   radius: 0.2
   characterController: {fileID: 14363646}
   seekerTarget: {fileID: 0}
-  seekWeight: 1000
-  safeDistance: 0.15
+  seekWeight: 500
+  safeDistance: 0.3
   avoidWeight: 500
   wanderWeight: 0
   boundsWeight: 500
   seperationWeight: 200
-  cohesionWeight: 20
-  alignmentWeight: 20
+  cohesionWeight: 10
+  alignmentWeight: 10
   sepDistance: 0.15
   leaderFollowDistance: 0
   leaderFollowWeight: 0
@@ -143,11 +143,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: safeDistance
-      value: 0.15
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: cohesionWeight
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: sepDistance
@@ -159,7 +159,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: seekWeight
-      value: 1000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -171,7 +171,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxForce
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: mass
@@ -179,7 +179,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: alignmentWeight
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: avoidWeight
@@ -196,6 +196,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Radius
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

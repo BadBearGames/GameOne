@@ -3,17 +3,34 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	//Fields
+	public Material deadMaterial;
+	public Material aliveMaterial;
 	private NavMeshAgent navMeshAgent;
 	private bool moving;
+	private int health;
 
 	// Use this for initialization
 	void Awake () {
 		navMeshAgent = GetComponent<NavMeshAgent> ();
 	}
+
+	void OnEnable()
+	{
+		
+	}
+
+	public void Init()
+	{
+		health = 3;
+		GetComponent<Renderer>().material = aliveMaterial;
+	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update () 
+	{
+		if (GameManager.Instance.State != GameState.GameOver && GameManager.Instance.State != GameState.Win)
+		{
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
 
@@ -37,7 +54,27 @@ public class Player : MonoBehaviour {
 				transform.position = Vector3.Lerp(transform.position, touchPosition, Time.deltaTime);
 			}
 		}
+		}
 	}
 
+	void OnCollisionEnter(Collision col)
+	{
+		if (col.collider.tag == "Enemy" && GameManager.Instance.State == GameState.Run)
+		{
+			health--;
+			if (health <= 0)
+			{
+				GameManager.Instance.SwitchGameState(GameState.GameOver);
+				GetComponent<Renderer>().material = deadMaterial;
+			}
+		}
+	}
 
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Goal")
+		{
+			GameManager.Instance.SwitchGameState(GameState.Win);
+		}
+	}
 }
