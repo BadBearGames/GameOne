@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
 	private int health;
 	public float speed;
 
+	private bool slow;
+
 	// Use this for initialization
 	void Awake () {
 		navMeshAgent = GetComponent<NavMeshAgent> ();
@@ -34,17 +36,26 @@ public class Player : MonoBehaviour {
 		{
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
+	
 
 		if (Input.GetButtonDown ("Fire1")) {
 			if (Physics.Raycast (ray, out hit, 100)) {
 				moving = true;
 				navMeshAgent.destination = hit.point;
 				navMeshAgent.Resume ();
+					navMeshAgent.speed += 0.08f;
+					navMeshAgent.acceleration += 0.1f;
 
 			}
 		}
+				
 
+			if (slow) {
+				navMeshAgent.speed -= 0.05f;
+				navMeshAgent.acceleration -= 0.1f;
+			} 
 
+			/*
 		if (Input.touchCount > 0) {
 			// The screen has been touched so store the touch
 			Touch touch = Input.GetTouch(0);
@@ -56,6 +67,9 @@ public class Player : MonoBehaviour {
 					transform.position = Vector3.MoveTowards(transform.position, touchPosition, speed);
 			}
 		}
+*/
+			navMeshAgent.speed -= 0.003f;
+	
 		}
 	}
 
@@ -77,6 +91,19 @@ public class Player : MonoBehaviour {
 		if (other.tag == "Goal")
 		{
 			GameManager.Instance.SwitchGameState(GameState.Win);
+		}
+
+		if (other.tag == "Mud") 
+		{
+			slow = true;
+		}
+	}
+
+	void OnTriggerExit(Collider c)
+	{
+		if (c.tag == "Mud") 
+		{
+			slow = false; 
 		}
 	}
 }
