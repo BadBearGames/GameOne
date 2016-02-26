@@ -8,7 +8,8 @@ public class Player : MonoBehaviour {
 	public Material aliveMaterial;
 	private NavMeshAgent navMeshAgent;
 	private bool moving;
-	private int health;
+	public static int health;
+	//GameManager gameManager;
 
 	// Use this for initialization
 	void Awake () {
