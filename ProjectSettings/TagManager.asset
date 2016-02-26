@@ -8,6 +8,7 @@ TagManager:
   - Goal
   - Mud
   - Flowers
+  - Log
   layers:
   - Default
   - TransparentFX

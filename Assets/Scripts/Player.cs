@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
 	private int health;
 	public float speed;
 
+	public bool hiding;
+
 	private bool slow;
 
 	// Use this for initialization
@@ -46,6 +48,10 @@ public class Player : MonoBehaviour {
 					navMeshAgent.speed += 0.08f;
 					navMeshAgent.acceleration += 0.1f;
 
+					if (navMeshAgent.speed > 4.0f)
+					{
+						navMeshAgent.speed = 4.0f;
+					}
 			}
 		}
 				
@@ -92,10 +98,14 @@ public class Player : MonoBehaviour {
 		{
 			GameManager.Instance.SwitchGameState(GameState.Win);
 		}
-
-		if (other.tag == "Mud") 
+		else if (other.tag == "Mud") 
 		{
 			slow = true;
+		}
+		else if (other.tag == "Log")
+		{
+			GameManager.Instance.flock.EnableChase(false);
+			hiding = true;
 		}
 	}
 
@@ -104,6 +114,11 @@ public class Player : MonoBehaviour {
 		if (c.tag == "Mud") 
 		{
 			slow = false; 
+		}
+		else if (c.tag == "Log")
+		{
+			GameManager.Instance.flock.EnableChase(true);
+			hiding = false;
 		}
 	}
 }
