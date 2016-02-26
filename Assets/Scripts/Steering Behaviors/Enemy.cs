@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class Enemy : Seeker
-{
+{	
+	private bool slow;
+
 	override public void Start()
 	{
 		base.Start();
@@ -33,6 +35,27 @@ public class Enemy : Seeker
 			ultimateForce += Cohesion(Flock.Centroid) * cohesionWeight;
 		}
 
+		if (slow) {
+			maxSpeed = 1.9f;
+		}
+
 		base.CalcSteeringForces ();
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+
+		if (other.tag == "Flowers") 
+		{
+			slow = true;
+		}
+	}
+
+	void OnTriggerExit(Collider c)
+	{
+		if (c.tag == "Flowers") 
+		{
+			slow = false; 
+		}
 	}
 }
