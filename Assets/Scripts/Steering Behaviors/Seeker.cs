@@ -37,12 +37,12 @@ public class Seeker : Vehicle {
 		base.Start();
 
 		ultimateForce = Vector3.zero;
-		//center = gm.spawnPosition.position;
 	}
 	
 	protected override void CalcSteeringForces ()
 	{
 		ultimateForce.y = 0f;
+
 		ultimateForce = Vector3.ClampMagnitude(ultimateForce, maxForce);
 		ApplyForce(ultimateForce);
 	}

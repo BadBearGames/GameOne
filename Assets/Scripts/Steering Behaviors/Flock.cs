@@ -5,41 +5,37 @@ using System.Collections.Generic;
 public class Flock: MonoBehaviour
 {
 	//Fields
+	//Assigned
+	public int numberFlockers;
+	public float initialSpacing;
+
 	private List<Seeker> agents = new List<Seeker>();
-	private int numberFlockers;
 	private Vector3 centroid;
 	private Vector3 direction;
 	private Vehicle leader;
-	public bool escaped = false;
+	public bool chase = false;
 
 	//Properties
 	public List<Seeker> Agents { get { return agents; } }
-	public int NumberFlockers { get { return numberFlockers; } }
 	public Vector3 Centroid { get { return centroid; } }
 	public Vector3 Direction { get { return direction; } }
 	public Vehicle Leader { get { return leader; } }
 
-	public Flock(int numFlockers, Vector3 center, bool isPolice)
+	void Awake()
 	{
 		//Set number and center
-		numberFlockers = numFlockers;
-		centroid = center;
+		centroid = transform.position;
 		direction = new Vector3(Random.Range(-1, 1), 0f, Random.Range(-1, 1));
 
 		//Create those flockers
-		/*Vector3 pos;
+		Vector3 pos;
 		for (int i = 0; i < numberFlockers; i++)
 		{
-			pos = new Vector3(Random.Range(center.x - 5, center.x + 5), center.y, Random.Range(center.z - 5, center.z + 5));
+			pos = new Vector3(Random.Range(centroid.x - initialSpacing, centroid.x + initialSpacing), centroid.y, Random.Range(centroid.z - initialSpacing, centroid.z + initialSpacing));
 			GameObject flocker = null;
-			if (isPolice)
-			{
-				flocker = (GameObject)GameObject.Instantiate(gm.policePrefab, pos, Quaternion.Euler(0f, Random.Range(0, 360), 0f));
-			}
-			else
-			{
-				flocker = (GameObject)GameObject.Instantiate(gm.partyGuyPrefab, pos, Quaternion.Euler(0f, Random.Range(0, 360), 0f));
-			}
+
+			flocker = (GameObject)GameObject.Instantiate(GameManager.Instance.beePrefab, pos, Quaternion.Euler(0f, Random.Range(0, 360), 0f));
+
 			flocker.GetComponent<Seeker>().Flock = this;
 			flocker.name = "" + Random.Range(-10000, 10000);
 			agents.Add(flocker.GetComponent<Seeker>());
@@ -47,10 +43,10 @@ public class Flock: MonoBehaviour
 			//Designate leader
 			if (i == 0)
 			{
-				flocker.GetComponent<Seeker>().seekerTarget = gm.fleeHouseTarget;
+				//flocker.GetComponent<Seeker>().seekerTarget = GameManager.Instance.player;
 				leader = flocker.GetComponent<Seeker>();
 			}
-		}*/
+		}
 	}
 
 	void Update()
@@ -88,5 +84,28 @@ public class Flock: MonoBehaviour
 		}
 		sumOfForward.Normalize();
 		direction = sumOfForward * agents[0].GetComponent<Seeker>().maxSpeed;
+	}
+
+	/// <summary>
+	/// Enables the chase.
+	/// </summary>
+	/// <param name="chase">If set to <c>true</c> chase.</param>
+	public void EnableChase(bool chase)
+	{
+		this.chase = chase;
+		if (chase)
+		{
+			foreach (Seeker agent in agents)
+			{
+				agent.seekerTarget = GameManager.Instance.player;
+			}
+		}
+		else
+		{
+			foreach (Seeker agent in agents)
+			{
+				agent.seekerTarget = null;
+			}
+		}
 	}
 }
