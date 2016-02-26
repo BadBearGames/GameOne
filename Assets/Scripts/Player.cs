@@ -46,7 +46,7 @@ public class Player : MonoBehaviour {
 				navMeshAgent.destination = hit.point;
 				navMeshAgent.Resume ();
 					navMeshAgent.speed += 0.08f;
-					navMeshAgent.acceleration += 0.1f;
+					//navMeshAgent.acceleration += 0.1f;
 
 					if (navMeshAgent.speed > 4.0f)
 					{
@@ -56,9 +56,13 @@ public class Player : MonoBehaviour {
 		}
 				
 
-			if (slow) {
-				navMeshAgent.speed -= 0.05f;
-				navMeshAgent.acceleration -= 0.1f;
+			if (slow) 
+			{
+				if (navMeshAgent.speed > 1.0f)
+				{
+					navMeshAgent.speed -= 0.05f;
+				}
+				//navMeshAgent.acceleration -= 0.1f;
 			} 
 
 			/*
