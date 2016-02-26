@@ -12454,6 +12454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadMaterial: {fileID: 2100000, guid: 33783ee711427ce4eb5aaa9d123d4618, type: 2}
   aliveMaterial: {fileID: 2100000, guid: 073f501bdfe7e264d966488a797bc0fa, type: 2}
+  speed: 0
 --- !u!23 &1646185480
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 	private NavMeshAgent navMeshAgent;
 	private bool moving;
 	private int health;
+	public float speed;
 
 	// Use this for initialization
 	void Awake () {
@@ -48,10 +49,11 @@ public class Player : MonoBehaviour {
 			// The screen has been touched so store the touch
 			Touch touch = Input.GetTouch(0);
 
-			if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) {
+			if (touch.phase == TouchPhase.Stationary) {
 				// If the finger is on the screen, move the object smoothly to the touch position
-				Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));                
-				transform.position = Vector3.Lerp(transform.position, touchPosition, Time.deltaTime);
+					Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10f));
+					speed = Time.deltaTime * touch.tapCount * 5;
+					transform.position = Vector3.MoveTowards(transform.position, touchPosition, speed);
 			}
 		}
 		}
