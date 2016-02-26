@@ -1,6 +1,6 @@
 //Maya ASCII 2014 scene
 //Name: tree_lp.ma
-//Last modified: Fri, Feb 26, 2016 12:47:30 PM
+//Last modified: Fri, Feb 26, 2016 01:53:03 PM
 //Codeset: 1252
 requires maya "2014";
 currentUnit -l centimeter -a degree -t film;
@@ -11,12 +11,12 @@ fileInfo "cutIdentifier" "201307170459-880822";
 fileInfo "osv" "Microsoft Windows 7 Home Premium Edition, 64-bit Windows 7 Service Pack 1 (Build 7601)\n";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -16.187169626115463 14.444972991096382 14.4540037110793 ;
-	setAttr ".r" -type "double3" -26.138352724679088 -48.20000000000465 0 ;
+	setAttr ".t" -type "double3" -10.782561944044415 8.8109026863841109 9.3477291814916033 ;
+	setAttr ".r" -type "double3" -19.538352724635295 -48.999999999922544 2.4239851453249269e-015 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 24.573564585549985;
+	setAttr ".coi" 15.523284325011916;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
