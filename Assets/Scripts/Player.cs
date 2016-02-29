@@ -45,7 +45,8 @@ public class Player : MonoBehaviour {
 				moving = true;
 				navMeshAgent.destination = hit.point;
 				navMeshAgent.Resume ();
-					navMeshAgent.speed += 0.08f;
+				navMeshAgent.speed += 0.08f;
+					SoundManager.Instance.PlaySound(SoundManager.Instance.footstepSound);
 					//navMeshAgent.acceleration += 0.1f;
 
 					if (navMeshAgent.speed > 4.0f)
@@ -93,6 +94,7 @@ public class Player : MonoBehaviour {
 				GameManager.Instance.SwitchGameState(GameState.GameOver);
 				GetComponent<Renderer>().material = deadMaterial;
 			}
+			SoundManager.Instance.PlaySound(SoundManager.Instance.stingSound);
 		}
 	}
 
