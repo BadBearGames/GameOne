@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
 	public Material aliveMaterial;
 	private NavMeshAgent navMeshAgent;
 	private bool moving;
-	private int health;
+	public static int health;
 	public float speed;
 
 	public bool hiding;

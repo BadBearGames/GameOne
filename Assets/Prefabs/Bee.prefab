@@ -16,7 +16,7 @@ GameObject:
   m_Layer: 0
   m_Name: Bee
   m_TagString: Enemy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -27,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1.26}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0, y: .5, z: 1.25999999}
+  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -50,10 +50,8 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -64,7 +62,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136674}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &11477432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,22 +76,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 3
   maxForce: 2.5
-  mass: 0.5
-  radius: 0.2
+  mass: .5
+  radius: .200000003
   characterController: {fileID: 14363646}
   seekerTarget: {fileID: 0}
   seekWeight: 500
-  safeDistance: 0.3
+  safeDistance: .300000012
   avoidWeight: 500
   wanderWeight: 0
   boundsWeight: 500
   seperationWeight: 200
   cohesionWeight: 10
   alignmentWeight: 10
-  sepDistance: 0.15
+  sepDistance: .150000006
   leaderFollowDistance: 0
   leaderFollowWeight: 0
-  arrivalSlowingDistance: 0.2
+  arrivalSlowingDistance: .200000003
   maxQueueAhead: 0
   maxQueueRadius: 0
   center: {x: 0, y: 0, z: 0}
@@ -105,9 +103,9 @@ SphereCollider:
   m_GameObject: {fileID: 136674}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: .5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &14363646
 CharacterController:
@@ -120,11 +118,11 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1
-  m_Radius: 0.1
+  m_Radius: .100000001
   m_SlopeLimit: 45
-  m_StepOffset: 0.05
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_StepOffset: .0500000007
+  m_SkinWidth: .0799999982
+  m_MinMoveDistance: .00100000005
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
@@ -191,7 +189,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Radius
@@ -200,6 +198,35 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 11d5b88643c74134789be43042662c0d,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
