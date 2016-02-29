@@ -39,7 +39,7 @@ public class Flock: MonoBehaviour
 			flocker.GetComponent<Seeker>().Flock = this;
 			flocker.name = "" + Random.Range(-10000, 10000);
 			agents.Add(flocker.GetComponent<Seeker>());
-			flocker.transform.SetParent(gameObject.transform);
+			//flocker.transform.SetParent(gameObject.transform);
 
 			//Designate leader
 			if (i == 0)
@@ -69,6 +69,7 @@ public class Flock: MonoBehaviour
 		}
 		
 		centroid /= numberFlockers;
+		transform.position = centroid;
 	}
 	
 	
