@@ -10,31 +10,32 @@ public class Player : MonoBehaviour {
 	private bool moving;
 	public static int health;
 	public float speed;
+	private Vector3 startPosition;
 
 	public bool hiding;
 
 	private bool slow;
 
 	// Use this for initialization
-	void Awake () {
-		navMeshAgent = GetComponent<NavMeshAgent> ();
-	}
-
-	void OnEnable()
+	void Awake () 
 	{
-		
+		navMeshAgent = GetComponent<NavMeshAgent> ();
+		startPosition = transform.position;
 	}
 
 	public void Init()
 	{
+		navMeshAgent.Stop();
+		navMeshAgent.ResetPath();
 		health = 3;
 		GetComponent<Renderer>().material = aliveMaterial;
+		transform.position = startPosition;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if (GameManager.Instance.State != GameState.GameOver && GameManager.Instance.State != GameState.Win)
+		if (GameManager.Instance.State != GameState.GameOver && GameManager.Instance.State != GameState.Win && GameManager.Instance.State != GameState.None)
 		{
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;
