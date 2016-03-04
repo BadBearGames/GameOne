@@ -16,7 +16,12 @@ public class healthHandler : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
+		if (Player.health == 3)
+		{
+			GetComponent<Image>().sprite = defaultHealth;
+		}
 		if(Player.health == 2) {
 			GetComponent<UnityEngine.UI.Image>().sprite = twoThirdsHealth;
 		}

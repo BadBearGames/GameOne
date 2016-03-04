@@ -38,6 +38,12 @@ public class Seeker : Vehicle {
 
 		ultimateForce = Vector3.zero;
 	}
+
+	public void Init()
+	{
+		velocity = Vector3.zero;
+		acceleration = Vector3.zero;
+	}
 	
 	protected override void CalcSteeringForces ()
 	{

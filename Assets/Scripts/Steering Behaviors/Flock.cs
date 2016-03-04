@@ -13,6 +13,7 @@ public class Flock: MonoBehaviour
 	private Vector3 centroid;
 	private Vector3 direction;
 	private Vehicle leader;
+	private Vector3 startPosition;
 	public bool chase = false;
 
 	//Properties
@@ -26,6 +27,7 @@ public class Flock: MonoBehaviour
 		//Set number and center
 		centroid = transform.position;
 		direction = new Vector3(Random.Range(-1, 1), 0f, Random.Range(-1, 1));
+		startPosition = transform.position;
 
 		//Create those flockers
 		Vector3 pos;
@@ -49,6 +51,16 @@ public class Flock: MonoBehaviour
 		}
 	}
 
+	public void Init()
+	{
+		centroid = startPosition;
+		foreach (Seeker agent in agents)
+		{
+			agent.transform.position = new Vector3(Random.Range(centroid.x - initialSpacing, centroid.x + initialSpacing), centroid.y, Random.Range(centroid.z - initialSpacing, centroid.z + initialSpacing));
+			agent.Init();
+		}
+	}
+
 	void Update()
 	{
 		CalcCentroid();
@@ -68,6 +80,7 @@ public class Flock: MonoBehaviour
 		}
 		
 		centroid /= numberFlockers;
+		transform.position = centroid;
 	}
 	
 	

@@ -7,7 +7,8 @@ public enum GameState
 	Start,
 	Run,
 	GameOver,
-	Win
+	Win,
+	None
 }
 
 public class GameManager : Singleton<GameManager> 
@@ -32,17 +33,18 @@ public class GameManager : Singleton<GameManager>
 
 	protected GameManager() {}
 
-	void OnEnable()
+	void Awake()
 	{
-		Init();
+		state = GameState.None;
 	}
 
-	void Init()
+	public void Init()
 	{
 		//Switch gamestate to start
 		SwitchGameState(GameState.Start);
 		stateTimer = 3f;
 		player.GetComponent<Player>().Init();
+		flock.Init();
 	}
 
 	void Update()
@@ -59,6 +61,11 @@ public class GameManager : Singleton<GameManager>
 			case GameState.Start:
 				SwitchGameState(GameState.Run);
 				break;
+			case GameState.GameOver:
+				MenuManager.Instance.SwitchScreen(2);
+				flock.EnableChase(false);
+				state = GameState.None;
+				break;
 			}
 		}
 	}
@@ -69,7 +76,6 @@ public class GameManager : Singleton<GameManager>
 	/// <param name="state">State.</param>
 	public void SwitchGameState(GameState state)
 	{
-		Debug.Log("Switch state: " + state);
 		switch (state)
 		{
 		case GameState.Run:
@@ -77,7 +83,7 @@ public class GameManager : Singleton<GameManager>
 			break;
 
 		case GameState.GameOver:
-
+			stateTimer = 2f;
 			break;
 
 		case GameState.Win:

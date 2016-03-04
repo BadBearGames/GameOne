@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Goal
+  - Mud
+  - Flowers
+  - Log
   layers:
   - Default
   - TransparentFX
