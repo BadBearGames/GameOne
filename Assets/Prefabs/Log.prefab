@@ -9,8 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 448478}
   - 33: {fileID: 3310304}
-  - 65: {fileID: 6577844}
   - 23: {fileID: 2370808}
+  - 136: {fileID: 13610292}
+  - 65: {fileID: 6585592}
+  - 65: {fileID: 6595942}
   m_Layer: 0
   m_Name: Log
   m_TagString: Log
@@ -24,9 +26,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174800}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.95, y: 0.15, z: -2.65}
-  m_LocalScale: {x: 2, y: 0.3, z: 1}
+  m_LocalRotation: {x: .323308766, y: -.323309064, z: .628865123, w: -.628865182}
+  m_LocalPosition: {x: -2.921, y: .36500001, z: .0860000029}
+  m_LocalScale: {x: .370702446, y: 1.86629474, z: .370702356}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -48,10 +50,8 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -62,9 +62,33 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174800}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &6577844
+  m_Mesh: {fileID: 4300000, guid: f7616ca240e2d684b85c704a4921c6ad, type: 3}
+--- !u!65 &6585592
 BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.00000048, y: 1.09944999, z: .157942951}
+  m_Center: {x: 4.23973802e-07, y: -.00214052573, z: .921016693}
+--- !u!65 &6595942
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.00000048, y: 1.09944999, z: .123489119}
+  m_Center: {x: 3.80229665e-07, y: -.00214246614, z: -.938262582}
+--- !u!136 &13610292
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -72,9 +96,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.00000024
+  m_Height: 1.09944987
+  m_Direction: 1
+  m_Center: {x: 1.19130448e-07, y: -.00214546919, z: 6.55651093e-07}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
